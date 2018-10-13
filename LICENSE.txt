@@ -1,0 +1,9 @@
+/* Copyright (C) 2017 Jenelle and Joshua Kaldon - All Rights Reserved
+ *
+ * You may not use, distribute or modify this code without the express
+ * written permission from Jenelle and Joshua Kaldon.
+ *
+ * For questions or concerns, please contact Jenelle and Joshua Kaldon
+ * at locispoints@lenistech.com.
+ *
+ */

@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'jacoco'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+
+    compile("io.springfox:springfox-swagger2:2.6.1")
+    compile("io.springfox:springfox-swagger-ui:2.6.1")
+
+    compile("org.apache.commons:commons-lang3:3.5")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.mockito:mockito-core:2.15.0")
+    testCompile("com.jayway.restassured:spring-mock-mvc:2.4.0")
+    testCompile("com.github.fakemongo:fongo:2.0.12")
+    testCompile("junit:junit:4.12")
+}
+
+jacocoTestReport {
+    reports {
+        html {
+            enabled true
+        }
+    }
+}
+
+archivesBaseName = "lt-template-service"
+
+test {
+    finalizedBy(project.tasks.jacocoTestReport)
+}
+
+classes.finalizedBy(project.tasks.test)
+
